@@ -1,0 +1,8 @@
+## Once modified, generate configuration with :
+##   nodeapps2apache
+## Then add this line to VHost configuration :
+##   Include node-apps.conf
+## Then reload apache :
+##   service apache2 reload
+
+## URI          PORT
