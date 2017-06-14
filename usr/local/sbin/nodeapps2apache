@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+a2dir=/etc/apache2
+template=${a2dir}/node-apps.tpl
+a2conf=${a2dir}/node-apps.conf
+apps=${a2dir}/appinfo.txt
+
+echo "RewriteEngine on" > $a2conf
+grep -v '^$\|^#' $apps | while read path port;
+do
+    sed "s#__PATH__#$path#;s#__PORT__#$port#" $template >> $a2conf
+done
